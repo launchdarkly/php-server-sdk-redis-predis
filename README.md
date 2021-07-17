@@ -25,12 +25,14 @@ If your project does not already have a dependency on Predis (`predis/predis`), 
 2. In your SDK configuration code, configure the Redis integration:
 
 ```php
-    $fr = LaunchDarkly\Integrations\Redis::featureRequester();
+    $fr = LaunchDarkly\Integrations\Redis::featureRequester([
+        "prefix" => "my-key-prefix"
+    ]);
     $config = [ "feature_requester" => $fr ];
     $client = new LDClient("sdk_key", $config);
 ```
 
-By default, the store will try to connect to a local Redis instance on port 6379 and will prefix all Redis keys with `launchdarkly`. You may specify an alternate configuration as described in the API documentation for `Redis::featureRequester`.
+By default, the store will try to connect to a local Redis instance on port 6379. You may specify an alternate configuration as described in the API documentation for `Redis::featureRequester`. Make sure the `prefix` option corresponds to the key prefix that is being used by the Relay Proxy.
 
 ## About LaunchDarkly
 
