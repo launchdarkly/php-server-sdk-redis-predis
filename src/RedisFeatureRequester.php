@@ -48,10 +48,10 @@ class RedisFeatureRequester extends FeatureRequesterBase
 
     protected function getConnection(): ClientInterface
     {
-        if ($this->$_connection != null) {
-            return $this->$_connection;
+        if ($this->$_connection == null) {
+            $this->$_connection = new Client($this->$_options);
         }
 
-        $this->$_connection = new Client($this->$_options);
+        return $this->$_connection;
     }
 }
