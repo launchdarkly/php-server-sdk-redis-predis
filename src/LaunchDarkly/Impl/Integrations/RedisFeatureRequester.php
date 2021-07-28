@@ -11,17 +11,22 @@ class RedisFeatureRequester extends FeatureRequesterBase
     var $_options;
     var $_prefix;
 
-    public function __constructor($baseUri, $sdkKey, $options)
-    {
-        parent::__constructor($baseUri, $sdkKey, $options);
+    const DEFAULT_PREFIX = 'launchdarkly';
 
-        $this->$_prefix = $options['redis_prefix'] ?? 'launchdarkly';
+    public function __construct($baseUri, $sdkKey, $options)
+    {
+        parent::__construct($baseUri, $sdkKey, $options);
+
+        $this->_prefix = $options['redis_prefix'] ?? null;
+        if ($this->_prefix === null || $this->_prefix === '') {
+            $this->_prefix = self::DEFAULT_PREFIX;
+        }
 
         $client = $options['predis_client'] ?? null;
         if ($client instanceof ClientInterface) {
-            $this->$_connection = $client;
+            $this->_connection = $client;
         } else {
-            $this->$_options = [
+            $this->_options = [
                 "scheme" => "tcp",
                 "timeout" => $options['redis_timeout'] ?? 5,
                 "host" => $options['redis_host'] ?? 'localhost',
@@ -45,10 +50,9 @@ class RedisFeatureRequester extends FeatureRequesterBase
 
     protected function getConnection()
     {
-        if ($this->$_connection != null) {
-            return $this->$_connection;
+        if ($this->_connection == null) {
+            $this->_connection = new Client($this->_options);
         }
-
-        $this->$_connection = new Client($this->$_options);
+        return $this->_connection;
     }
 }

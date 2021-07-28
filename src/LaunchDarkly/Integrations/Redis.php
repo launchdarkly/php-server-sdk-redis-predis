@@ -1,6 +1,8 @@
 <?php
 namespace LaunchDarkly\Integrations;
 
+use \LaunchDarkly\Impl\Integrations\RedisFeatureRequester;
+
 class Redis
 {
     /**
@@ -29,7 +31,7 @@ class Redis
     public static function featureRequester($options = array())
     {
         return function ($baseUri, $sdkKey, $baseOptions) use ($options) {
-            return new Impl\RedisFeatureRequester($baseUri, $sdkKey, array_merge($baseOptions, $options));
+            return new RedisFeatureRequester($baseUri, $sdkKey, array_merge($baseOptions, $options));
         };
     }
 }
