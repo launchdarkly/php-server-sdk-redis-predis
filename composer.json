@@ -1,6 +1,6 @@
 {
     "name": "launchdarkly/server-sdk-redis-predis",
-    "description": "LaunchDarkly PHP SDK Predis integration using the predis package",
+    "description": "LaunchDarkly PHP SDK Redis integration using the predis package",
     "keywords": [
         "launchdarkly",
         "launchdarkly php"
