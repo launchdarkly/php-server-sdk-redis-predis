@@ -16,7 +16,7 @@ class RedisFeatureRequester extends FeatureRequesterBase
 
     const DEFAULT_PREFIX = 'launchdarkly';
 
-    public function __construct(string $baseUri, string $sdkKey, string $options)
+    public function __construct(string $baseUri, string $sdkKey, array $options)
     {
         parent::__construct($baseUri, $sdkKey, $options);
 
