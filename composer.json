@@ -39,7 +39,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "LaunchDarkly\\SharedTest\\Tests\\": "tests/"
+            "LaunchDarkly\\Impl\\Integrations\\Tests\\": "tests/"
         }
     },
     "config": {
