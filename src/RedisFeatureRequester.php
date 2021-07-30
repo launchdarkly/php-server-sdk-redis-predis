@@ -14,7 +14,7 @@ class RedisFeatureRequester extends FeatureRequesterBase
     /** @var string */
     var $_prefix;
 
-    public function __construct(string $baseUri, string $sdkKey, string $options)
+    public function __construct(string $baseUri, string $sdkKey, array $options)
     {
         parent::__construct($baseUri, $sdkKey, $options);
 
