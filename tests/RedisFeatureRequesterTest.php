@@ -29,8 +29,8 @@ class RedisFeatureRequesterTest extends DatabaseFeatureRequesterTestBase
     
     protected function makeRequester($prefix): FeatureRequester
     {
-        $factory = Redis::featureRequester();
-        return $factory('', '', ['redis_prefix' => $prefix]);
+        $factory = Redis::featureRequester(['redis_prefix' => $prefix]);
+        return $factory('', '', []);
     }
 
     protected function putSerializedItem($prefix, $namespace, $key, $version, $json): void
