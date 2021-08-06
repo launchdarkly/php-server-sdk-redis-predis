@@ -14,4 +14,4 @@ html:
 		--ignore docs/ \
 		--visibility public \
 		--defaultpackagename "SDK" \
-		--title "LaunchDarkly PHP SDK Predis integration ${LD_RELEASE_VERSION}"
+		--title "${LD_RELEASE_DOCS_TITLE} ${LD_RELEASE_VERSION}"

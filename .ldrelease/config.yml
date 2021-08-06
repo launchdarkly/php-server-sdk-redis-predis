@@ -8,3 +8,4 @@ circleci:
 
 documentation:
   githubPages: true
+  title: LaunchDarkly PHP SDK Predis integration
