@@ -1,126 +1,6 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase",
-            "name": "DatabaseFeatureRequesterTestBase",
-            "summary": "A\u0020base\u0020class\u0020providing\u0020standardized\u0020PHPUnit\u0020tests\u0020for\u0020database\u0020integrations.",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestGetFeature\u0028\u0029",
-            "name": "testGetFeature",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testGetFeature"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestGetMissingFeature\u0028\u0029",
-            "name": "testGetMissingFeature",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testGetMissingFeature"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestGetDeletedFeature\u0028\u0029",
-            "name": "testGetDeletedFeature",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testGetDeletedFeature"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestGetAllFeatures\u0028\u0029",
-            "name": "testGetAllFeatures",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testGetAllFeatures"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestAllFeaturesWithEmptyStore\u0028\u0029",
-            "name": "testAllFeaturesWithEmptyStore",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testAllFeaturesWithEmptyStore"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestGetSegment\u0028\u0029",
-            "name": "testGetSegment",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testGetSegment"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestGetMissingSegment\u0028\u0029",
-            "name": "testGetMissingSegment",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testGetMissingSegment"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestGetDeletedSegment\u0028\u0029",
-            "name": "testGetDeletedSegment",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testGetDeletedSegment"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AtestPrefixIndependence\u0028\u0029",
-            "name": "testPrefixIndependence",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_testPrefixIndependence"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003AprefixParameters\u0028\u0029",
-            "name": "prefixParameters",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#method_prefixParameters"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\DatabaseFeatureRequesterTestBase\u003A\u003ATEST_PREFIX",
-            "name": "TEST_PREFIX",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-DatabaseFeatureRequesterTestBase.html#constant_TEST_PREFIX"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabase",
-            "name": "FakeDatabase",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabase.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabase\u003A\u003AgetItem\u0028\u0029",
-            "name": "getItem",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabase.html#method_getItem"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabase\u003A\u003AgetAllItems\u0028\u0029",
-            "name": "getAllItems",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabase.html#method_getAllItems"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabase\u003A\u003AputSerializedItem\u0028\u0029",
-            "name": "putSerializedItem",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabase.html#method_putSerializedItem"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabase\u003A\u003A\u0024data",
-            "name": "data",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabase.html#property_data"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabaseFeatureRequester",
-            "name": "FakeDatabaseFeatureRequester",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabaseFeatureRequester.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabaseFeatureRequester\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabaseFeatureRequester.html#method___construct"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabaseFeatureRequester\u003A\u003AgetFeature\u0028\u0029",
-            "name": "getFeature",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabaseFeatureRequester.html#method_getFeature"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabaseFeatureRequester\u003A\u003AgetSegment\u0028\u0029",
-            "name": "getSegment",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabaseFeatureRequester.html#method_getSegment"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\FakeDatabaseFeatureRequester\u003A\u003AgetAllFeatures\u0028\u0029",
-            "name": "getAllFeatures",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-FakeDatabaseFeatureRequester.html#method_getAllFeatures"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\DatabaseFeatureRequesterTestBaseTest",
-            "name": "DatabaseFeatureRequesterTestBaseTest",
-            "summary": "A\u0020base\u0020class\u0020providing\u0020standardized\u0020PHPUnit\u0020tests\u0020for\u0020database\u0020integrations.",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-DatabaseFeatureRequesterTestBaseTest.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests\\DatabaseFeatureRequesterTestBaseTest\u003A\u003ADEFAULT_PREFIX",
-            "name": "DEFAULT_PREFIX",
-            "summary": "",
-            "url": "classes/LaunchDarkly-SharedTest-Tests-DatabaseFeatureRequesterTestBaseTest.html#constant_DEFAULT_PREFIX"
-        },                {
             "fqsen": "\\LaunchDarkly\\Impl\\Integrations\\RedisFeatureRequester",
             "name": "RedisFeatureRequester",
             "summary": "",
@@ -166,21 +46,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest",
-            "name": "SharedTest",
-            "summary": "",
-            "url": "namespaces/launchdarkly-sharedtest.html"
-        },                {
-            "fqsen": "\\LaunchDarkly",
-            "name": "LaunchDarkly",
-            "summary": "",
-            "url": "namespaces/launchdarkly.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\SharedTest\\Tests",
-            "name": "Tests",
-            "summary": "",
-            "url": "namespaces/launchdarkly-sharedtest-tests.html"
-        },                {
             "fqsen": "\\LaunchDarkly\\Impl\\Integrations",
             "name": "Integrations",
             "summary": "",
@@ -190,6 +55,11 @@ Search.appendIndex(
             "name": "Impl",
             "summary": "",
             "url": "namespaces/launchdarkly-impl.html"
+        },                {
+            "fqsen": "\\LaunchDarkly",
+            "name": "LaunchDarkly",
+            "summary": "",
+            "url": "namespaces/launchdarkly.html"
         },                {
             "fqsen": "\\LaunchDarkly\\Integrations",
             "name": "Integrations",
