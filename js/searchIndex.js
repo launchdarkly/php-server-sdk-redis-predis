@@ -1,36 +1,6 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\LaunchDarkly\\Impl\\Integrations\\RedisFeatureRequester",
-            "name": "RedisFeatureRequester",
-            "summary": "",
-            "url": "classes/LaunchDarkly-Impl-Integrations-RedisFeatureRequester.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\Impl\\Integrations\\RedisFeatureRequester\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/LaunchDarkly-Impl-Integrations-RedisFeatureRequester.html#method___construct"
-        },                {
-            "fqsen": "\\LaunchDarkly\\Impl\\Integrations\\RedisFeatureRequester\u003A\u003ADEFAULT_PREFIX",
-            "name": "DEFAULT_PREFIX",
-            "summary": "",
-            "url": "classes/LaunchDarkly-Impl-Integrations-RedisFeatureRequester.html#constant_DEFAULT_PREFIX"
-        },                {
-            "fqsen": "\\LaunchDarkly\\Impl\\Integrations\\RedisFeatureRequester\u003A\u003A\u0024_connection",
-            "name": "_connection",
-            "summary": "",
-            "url": "classes/LaunchDarkly-Impl-Integrations-RedisFeatureRequester.html#property__connection"
-        },                {
-            "fqsen": "\\LaunchDarkly\\Impl\\Integrations\\RedisFeatureRequester\u003A\u003A\u0024_options",
-            "name": "_options",
-            "summary": "",
-            "url": "classes/LaunchDarkly-Impl-Integrations-RedisFeatureRequester.html#property__options"
-        },                {
-            "fqsen": "\\LaunchDarkly\\Impl\\Integrations\\RedisFeatureRequester\u003A\u003A\u0024_prefix",
-            "name": "_prefix",
-            "summary": "",
-            "url": "classes/LaunchDarkly-Impl-Integrations-RedisFeatureRequester.html#property__prefix"
-        },                {
             "fqsen": "\\LaunchDarkly\\Integrations\\Redis",
             "name": "Redis",
             "summary": "Integration\u0020with\u0020a\u0020Redis\u0020data\u0020store\u0020using\u0020the\u0020\u0060predis\u0060\u0020package.",
@@ -46,24 +16,14 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\LaunchDarkly\\Impl\\Integrations",
+            "fqsen": "\\LaunchDarkly\\Integrations",
             "name": "Integrations",
             "summary": "",
-            "url": "namespaces/launchdarkly-impl-integrations.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\Impl",
-            "name": "Impl",
-            "summary": "",
-            "url": "namespaces/launchdarkly-impl.html"
+            "url": "namespaces/launchdarkly-integrations.html"
         },                {
             "fqsen": "\\LaunchDarkly",
             "name": "LaunchDarkly",
             "summary": "",
             "url": "namespaces/launchdarkly.html"
-        },                {
-            "fqsen": "\\LaunchDarkly\\Integrations",
-            "name": "Integrations",
-            "summary": "",
-            "url": "namespaces/launchdarkly-integrations.html"
         }            ]
 );
