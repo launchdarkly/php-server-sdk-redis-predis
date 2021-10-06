@@ -35,6 +35,8 @@ class RedisFeatureRequester extends FeatureRequesterBase
                 "host" => $options['redis_host'] ?? 'localhost',
                 "port" => $options['redis_port'] ?? 6379
             ];
+
+            $this->_options = array_merge($this->_options, $options['predis_options'] ?? []);
         }
     }
     
