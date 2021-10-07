@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>LaunchDarkly PHP SDK Predis integration 1.0.0</title>
+    <title>LaunchDarkly PHP SDK Predis integration 1.1.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../">
     <link rel="icon" href="images/favicon.ico"/>
@@ -23,7 +23,7 @@
     </head>
 <body id="top">
     <header class="phpdocumentor-header phpdocumentor-section">
-    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">LaunchDarkly PHP SDK Predis integration 1.0.0</a></h1>
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">LaunchDarkly PHP SDK Predis integration 1.1.0</a></h1>
     <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
     <label class="phpdocumentor-header__menu-icon" for="menu-button">
         <i class="fas fa-bars"></i>
@@ -156,7 +156,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="LaunchDarkly/Integrations/Redis.php"><a href="files/launchdarkly-integrations-redis.html"><abbr title="LaunchDarkly/Integrations/Redis.php">Redis.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -195,7 +195,14 @@ $client = new LDClient(&quot;sdk_key&quot;, $config);
 <code class="prettyprint">redis_prefix</code>: a string to be prepended to all database keys; corresponds to the prefix
 setting in ld-relay</li>
 <li>
-<code class="prettyprint">predis_client</code>: an already-configured Predis client instance if you wish to reuse one</li>
+<code class="prettyprint">predis_client</code>: an already-configured Predis client instance if you wish to reuse one; if
+specified, this will cause all other options except <code class="prettyprint">redis_prefix</code> and <code class="prettyprint">apc_expiration</code>
+to be ignored</li>
+<li>
+<code class="prettyprint">predis_options</code>: an array of connection options to be passed directly to the Predis client;
+these can include any options supported by <code class="prettyprint">Predis\Client</code>, and will override any equivalent
+top-level options (for instance, <code class="prettyprint">&quot;host&quot;</code> in <code class="prettyprint">predis_options</code> takes priority over <code class="prettyprint">&quot;redis_host&quot;</code>
+at the top level)</li>
 <li>
 <code class="prettyprint">apc_expiration</code>: expiration time in seconds for local caching, if <code class="prettyprint">APCu</code> is installed</li>
 </ul>
