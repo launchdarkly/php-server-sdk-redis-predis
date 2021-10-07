@@ -26,8 +26,13 @@ class Redis
      *   - `redis_timeout`: connection timeout in seconds; defaults to 5
      *   - `redis_prefix`: a string to be prepended to all database keys; corresponds to the prefix
      * setting in ld-relay
-     *   - `predis_client`: an already-configured Predis client instance if you wish to reuse one
-     *   - `predis_options`: an array of connection options to be passed directly to the Predis client
+     *   - `predis_client`: an already-configured Predis client instance if you wish to reuse one; if
+     * specified, this will cause all other options except `redis_prefix` and `apc_expiration`
+     * to be ignored
+     *   - `predis_options`: an array of connection options to be passed directly to the Predis client;
+     * these can include any options supported by `Predis\Client`, and will override any equivalent
+     * top-level options (for instance, `"host"` in `predis_options` takes priority over `"redis_host"`
+     * at the top level)
      *   - `apc_expiration`: expiration time in seconds for local caching, if `APCu` is installed
      * @return mixed  an object to be stored in the `feature_requester` configuration property
      */
