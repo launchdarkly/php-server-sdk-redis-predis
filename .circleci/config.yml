@@ -46,7 +46,7 @@ jobs:
           command: composer install --no-progress
       - run:
           name: require appropriate shared tests package
-          command: composer require --dev 'launchdarkly/server-sdk-shared-tests:<<parameters.composer-dependencies>>'
+          command: composer require --dev 'launchdarkly/server-sdk-shared-tests:<<parameters.shared-tests>>'
       - when:
           condition:
             equal: [ <<parameters.composer-dependencies>>, "lowest" ]
