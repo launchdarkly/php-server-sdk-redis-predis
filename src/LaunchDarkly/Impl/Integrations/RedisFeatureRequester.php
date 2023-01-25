@@ -10,7 +10,7 @@ class RedisFeatureRequester extends FeatureRequesterBase
     /** @var ClientInterface */
     var $_connection;
     /** @var array */
-    var $_options;
+    var $_redisOptions;
     /** @var string */
     var $_prefix;
 
@@ -29,17 +29,17 @@ class RedisFeatureRequester extends FeatureRequesterBase
         if ($client instanceof ClientInterface) {
             $this->_connection = $client;
         } else {
-            $this->_options = [
+            $this->_redisOptions = [
                 "scheme" => "tcp",
                 "timeout" => $options['redis_timeout'] ?? 5,
                 "host" => $options['redis_host'] ?? 'localhost',
                 "port" => $options['redis_port'] ?? 6379
             ];
 
-            $this->_options = array_merge($this->_options, $options['predis_options'] ?? []);
+            $this->_redisOptions = array_merge($this->_redisOptions, $options['predis_options'] ?? []);
         }
     }
-    
+
     protected function readItemString(string $namespace, string $key): ?string
     {
         $redis = $this->getConnection();
@@ -56,7 +56,7 @@ class RedisFeatureRequester extends FeatureRequesterBase
     protected function getConnection(): ClientInterface
     {
         if ($this->_connection == null) {
-            $this->_connection = new Client($this->_options);
+            $this->_connection = new Client($this->_redisOptions);
         }
 
         return $this->_connection;
