@@ -21,7 +21,14 @@ workflows:
           name: "SDK 5.x PHP >=8.0"
           matrix:
               parameters:
-                  php-version: ["8.0", "8.1"]
+                  php-version: ["8.0", "8.1", "8.2"]
+                  composer-dependencies: ["highest"]
+                  shared-tests: ["5.x-dev"]
+      - linux-test:
+          name: "SDK 6.x PHP >=8.1"
+          matrix:
+              parameters:
+                  php-version: ["8.1", "8.2"]
                   composer-dependencies: ["highest"]
                   shared-tests: ["dev-main"]
 
