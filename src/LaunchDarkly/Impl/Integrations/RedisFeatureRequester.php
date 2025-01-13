@@ -2,6 +2,7 @@
 
 namespace LaunchDarkly\Impl\Integrations;
 
+use LaunchDarkly\Integrations;
 use Predis\Client;
 use Predis\ClientInterface;
 
@@ -11,15 +12,13 @@ class RedisFeatureRequester extends FeatureRequesterBase
     public ?array $_redisOptions = null;
     public ?string $_prefix;
 
-    const DEFAULT_PREFIX = 'launchdarkly';
-
     public function __construct(string $baseUri, string $sdkKey, array $options)
     {
         parent::__construct($baseUri, $sdkKey, $options);
 
         $this->_prefix = $options['redis_prefix'] ?? null;
         if ($this->_prefix === null || $this->_prefix === '') {
-            $this->_prefix = self::DEFAULT_PREFIX;
+            $this->_prefix = Integrations\Redis::DEFAULT_PREFIX;
         }
 
         $client = $options['predis_client'] ?? null;
