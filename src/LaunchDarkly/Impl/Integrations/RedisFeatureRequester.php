@@ -1,18 +1,18 @@
 <?php
+
 namespace LaunchDarkly\Impl\Integrations;
 
-use LaunchDarkly\Impl\Integrations\FeatureRequesterBase;
-use Predis\ClientInterface;
 use Predis\Client;
+use Predis\ClientInterface;
 
 class RedisFeatureRequester extends FeatureRequesterBase
 {
     /** @var ClientInterface */
-    var $_connection;
+    public $_connection;
     /** @var array */
-    var $_redisOptions;
+    public $_redisOptions;
     /** @var string */
-    var $_prefix;
+    public $_prefix;
 
     const DEFAULT_PREFIX = 'launchdarkly';
 

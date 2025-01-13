@@ -1,4 +1,5 @@
 <?php
+
 namespace LaunchDarkly\Integrations;
 
 use \LaunchDarkly\Impl\Integrations\RedisFeatureRequester;
