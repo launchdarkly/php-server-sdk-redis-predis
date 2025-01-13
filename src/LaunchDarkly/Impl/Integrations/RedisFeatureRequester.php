@@ -7,12 +7,9 @@ use Predis\ClientInterface;
 
 class RedisFeatureRequester extends FeatureRequesterBase
 {
-    /** @var ClientInterface */
-    public $_connection;
-    /** @var array */
-    public $_redisOptions;
-    /** @var string */
-    public $_prefix;
+    public ?ClientInterface $_connection = null;
+    public ?array $_redisOptions = null;
+    public ?string $_prefix;
 
     const DEFAULT_PREFIX = 'launchdarkly';
 
