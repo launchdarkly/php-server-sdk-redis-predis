@@ -13,7 +13,7 @@ class RedisFeatureRequesterTest extends DatabaseFeatureRequesterTestBase
 
     public static function setUpBeforeClass(): void
     {
-        self::$predisClient = new Client(array());
+        self::$predisClient = new Client([]);
     }
 
     protected function clearExistingData($prefix): void
