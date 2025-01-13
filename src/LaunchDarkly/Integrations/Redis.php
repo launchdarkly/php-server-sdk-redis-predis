@@ -9,6 +9,8 @@ use \LaunchDarkly\Impl\Integrations\RedisFeatureRequester;
  */
 class Redis
 {
+    const DEFAULT_PREFIX = 'launchdarkly';
+
     /**
      * Configures an adapter for reading feature flag data from Redis.
      *
