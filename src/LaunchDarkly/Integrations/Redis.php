@@ -2,7 +2,11 @@
 
 namespace LaunchDarkly\Integrations;
 
-use \LaunchDarkly\Impl\Integrations\RedisFeatureRequester;
+use LaunchDarkly\Impl\Integrations\RedisFeatureRequester;
+use LaunchDarkly\Impl\Integrations\RedisBigSegmentsStore;
+use LaunchDarkly\Subsystems;
+use Predis\ClientInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Integration with a Redis data store using the `predis` package.
@@ -43,6 +47,18 @@ class Redis
     {
         return function (string $baseUri, string $sdkKey, array $baseOptions) use ($options) {
             return new RedisFeatureRequester($baseUri, $sdkKey, array_merge($baseOptions, $options));
+        };
+    }
+
+    /**
+     * @param array<string,mixed> $options
+     *   - `prefix`: namespace prefix to add to all hash keys
+     * @return callable(LoggerInterface, array): Subsystems\BigSegmentsStore
+     */
+    public static function bigSegmentsStore(ClientInterface $client, array $options = []): callable
+    {
+        return function (LoggerInterface $logger, array $baseOptions) use ($client, $options): Subsystems\BigSegmentsStore {
+            return new RedisBigSegmentsStore($client, $logger, array_merge($baseOptions, $options));
         };
     }
 }
