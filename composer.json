@@ -1,10 +1,4 @@
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/launchdarkly/php-server-sdk-shared-tests"
-        }
-    ],
     "name": "launchdarkly/server-sdk-redis-predis",
     "description": "LaunchDarkly PHP SDK Redis integration using the predis package",
     "keywords": [

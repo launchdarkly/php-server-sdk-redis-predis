@@ -3,7 +3,6 @@
 namespace LaunchDarkly\Impl\Integrations\Tests;
 
 use LaunchDarkly\Integrations\Redis;
-use LaunchDarkly\SharedTest\DatabaseFeatureRequesterTestBase;
 use Predis\Client;
 
 class RedisFeatureRequesterWithClientTest extends DatabaseFeatureRequesterTestBase
