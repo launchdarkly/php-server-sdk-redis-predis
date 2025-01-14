@@ -31,7 +31,11 @@ class RedisBigSegmentsStore implements Subsystems\BigSegmentsStore
         private readonly LoggerInterface $logger,
         readonly array $options = []
     ) {
-        $this->prefix = $options['prefix'] ?? Integrations\Redis::DEFAULT_PREFIX;
+        $prefix = $options['prefix'] ?? null;
+        if (empty($prefix)) {
+            $prefix = Integrations\Redis::DEFAULT_PREFIX;
+        }
+        $this->prefix = $prefix;
     }
 
     public function getMetadata(): Types\BigSegmentsStoreMetadata

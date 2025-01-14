@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaunchDarkly\Impl\Integrations;
 
 use LaunchDarkly\Integrations;
@@ -20,7 +22,11 @@ class RedisFeatureRequester extends FeatureRequesterBase
         array $options
     ) {
         parent::__construct($baseUri, $sdkKey, $options);
-        $this->prefix = $options['prefix'] ?? Integrations\Redis::DEFAULT_PREFIX;
+        $prefix = $options['prefix'] ?? null;
+        if (empty($prefix)) {
+            $prefix = Integrations\Redis::DEFAULT_PREFIX;
+        }
+        $this->prefix = $prefix;
     }
 
     protected function readItemString(string $namespace, string $key): ?string
