@@ -56,7 +56,7 @@ class RedisBigSegmentsStore implements Subsystems\BigSegmentsStore
             $includeRefs = $this->connection->smembers($this->prefix . self::KEY_CONTEXT_INCLUDE . $contextHash);
             $excludeRefs = $this->connection->smembers($this->prefix . self::KEY_CONTEXT_EXCLUDE . $contextHash);
         } catch (Exception $e) {
-            $this->logger->warning('Error getting big segment membership from Redis', ['exception' => $e->getMessage()]);
+            $this->logger->warning('Error getting big segments membership from Redis', ['exception' => $e->getMessage()]);
             return null;
         }
 

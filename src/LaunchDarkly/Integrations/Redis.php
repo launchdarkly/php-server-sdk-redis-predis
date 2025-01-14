@@ -40,13 +40,13 @@ class Redis
     }
 
     /**
-     * Configures a big segment store instance backed by Redis.
+     * Configures a big segments store instance backed by Redis.
      *
      * After calling this method, store its return value in the `store` property of your Big Segment configuration:
      *
-     *     $store = LaunchDarkly\Integrations\Redis::bigSegmentStore(["prefix" => "env1"]);
+     *     $store = LaunchDarkly\Integrations\Redis::bigSegmentsStore(["prefix" => "env1"]);
      *     $bigSegmentsConfig = new LaunchDarkly\BigSegmentConfig(store: $store);
-     *     $config = ["big_segment" => $bigSegmentsConfig];
+     *     $config = ["big_segments" => $bigSegmentsConfig];
      *     $client = new LDClient("sdk_key", $config);
      *
      * For more about using LaunchDarkly with databases, see the
