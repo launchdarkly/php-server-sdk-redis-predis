@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaunchDarkly\Integrations;
 
 use LaunchDarkly\Impl\Integrations\RedisBigSegmentsStore;
@@ -20,9 +22,11 @@ class Redis
      *
      * After calling this method, store its return value in the `feature_requester` property of your client configuration:
      *
-     *     $fr = LaunchDarkly\Integrations\Redis::featureRequester(["prefix" => "env1"]);
-     *     $config = ["feature_requester" => $fr];
-     *     $client = new LDClient("sdk_key", $config);
+     * ```php
+     * $fr = LaunchDarkly\Integrations\Redis::featureRequester(["prefix" => "env1"]);
+     * $config = ["feature_requester" => $fr];
+     * $client = new LDClient("sdk_key", $config);
+     * ```
      *
      * For more about using LaunchDarkly with databases, see the
      * [SDK reference guide](https://docs.launchdarkly.com/sdk/features/storing-data).
@@ -44,23 +48,19 @@ class Redis
      *
      * After calling this method, store its return value in the `store` property of your Big Segment configuration:
      *
-     *     $store = LaunchDarkly\Integrations\Redis::bigSegmentsStore(["prefix" => "env1"]);
-     *     $bigSegmentsConfig = new LaunchDarkly\BigSegmentConfig(store: $store);
-     *     $config = ["big_segments" => $bigSegmentsConfig];
-     *     $client = new LDClient("sdk_key", $config);
-     *
-     * For more about using LaunchDarkly with databases, see the
-     * [SDK reference guide](https://docs.launchdarkly.com/sdk/features/storing-data).
+     * ```php
+     * $store = LaunchDarkly\Integrations\Redis::bigSegmentsStore(["prefix" => "env1"]);
+     * $bigSegmentsConfig = new LaunchDarkly\BigSegmentConfig(store: $store);
+     * $config = ["big_segments" => $bigSegmentsConfig];
+     * $client = new LDClient("sdk_key", $config);
+     * ```
      *
      * @param array<string,mixed> $options
      *   - `prefix`: a string to be prepended to all database keys; corresponds
      *   to the prefix setting in ld-relay
-     * @return callable(LoggerInterface, array): Subsystems\BigSegmentsStore
      */
-    public static function bigSegmentsStore(ClientInterface $client, array $options = []): callable
+    public static function bigSegmentsStore(ClientInterface $client, LoggerInterface $logger, array $options = []): Subsystems\BigSegmentsStore
     {
-        return function (LoggerInterface $logger, array $baseOptions) use ($client, $options): Subsystems\BigSegmentsStore {
-            return new RedisBigSegmentsStore($client, $logger, array_merge($baseOptions, $options));
-        };
+        return new RedisBigSegmentsStore($client, $logger, $options);
     }
 }
