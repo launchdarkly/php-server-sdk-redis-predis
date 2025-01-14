@@ -54,8 +54,8 @@ class DatabaseFeatureRequesterTestBase extends TestCase
         string $namespace,
         string $key,
         int $version,
-        string $json): void
-    {
+        string $json
+    ): void {
         throw new \RuntimeException("test class did not implement putSerializedItem");
     }
 
@@ -149,7 +149,7 @@ class DatabaseFeatureRequesterTestBase extends TestCase
         $fr = $this->makeRequester($prefix);
 
         $flags = $fr->getAllFeatures();
-        $this->assertEquals(array(), $flags);
+        $this->assertEquals([], $flags);
     }
 
     /**
@@ -228,10 +228,20 @@ class DatabaseFeatureRequesterTestBase extends TestCase
     private function setupForPrefix(?string $prefix, string $flagKey, string $segmentKey, int $flagVersion): void
     {
         $segmentVersion = $flagVersion * 2;
-        $this->putSerializedItem($prefix, 'features', $flagKey, $flagVersion,
-            self::makeFlagJson($flagKey, $flagVersion));
-        $this->putSerializedItem($prefix, 'segments', $segmentKey, $segmentVersion,
-            self::makeSegmentJson($flagKey, $segmentVersion));
+        $this->putSerializedItem(
+            $prefix,
+            'features',
+            $flagKey,
+            $flagVersion,
+            self::makeFlagJson($flagKey, $flagVersion)
+        );
+        $this->putSerializedItem(
+            $prefix,
+            'segments',
+            $segmentKey,
+            $segmentVersion,
+            self::makeSegmentJson($flagKey, $segmentVersion)
+        );
     }
 
     private function verifyForPrefix($fr, string $flagKey, string $segmentKey, int $flagVersion): void
@@ -265,7 +275,7 @@ class DatabaseFeatureRequesterTestBase extends TestCase
 
     private static function makeFlagJson(string $key, int $version, bool $deleted = false): string|bool
     {
-        return json_encode(array(
+        return json_encode([
             'key' => $key,
             'version' => $version,
             'on' => true,
@@ -282,19 +292,19 @@ class DatabaseFeatureRequesterTestBase extends TestCase
                 false,
             ],
             'deleted' => $deleted
-        ));
+        ]);
     }
 
     private static function makeSegmentJson(string $key, int $version, bool $deleted = false): string|bool
     {
-        return json_encode(array(
+        return json_encode([
             'key' => $key,
             'version' => $version,
-            'included' => array(),
-            'excluded' => array(),
+            'included' => [],
+            'excluded' => [],
             'rules' => [],
             'salt' => '',
             'deleted' => $deleted
-        ));
+        ]);
     }
 }

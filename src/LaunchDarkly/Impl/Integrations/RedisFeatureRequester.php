@@ -3,58 +3,34 @@
 namespace LaunchDarkly\Impl\Integrations;
 
 use LaunchDarkly\Integrations;
-use Predis\Client;
 use Predis\ClientInterface;
 
 class RedisFeatureRequester extends FeatureRequesterBase
 {
-    public ?ClientInterface $_connection = null;
-    public ?array $_redisOptions = null;
-    public ?string $_prefix;
+    private readonly string $prefix;
 
-    public function __construct(string $baseUri, string $sdkKey, array $options)
-    {
+    /**
+     * @param array<string,mixed> $options
+     *   - `prefix`: namespace prefix to add to all hash keys
+     */
+    public function __construct(
+        private readonly ClientInterface $connection,
+        string $baseUri,
+        string $sdkKey,
+        array $options
+    ) {
         parent::__construct($baseUri, $sdkKey, $options);
-
-        $this->_prefix = $options['redis_prefix'] ?? null;
-        if ($this->_prefix === null || $this->_prefix === '') {
-            $this->_prefix = Integrations\Redis::DEFAULT_PREFIX;
-        }
-
-        $client = $options['predis_client'] ?? null;
-        if ($client instanceof ClientInterface) {
-            $this->_connection = $client;
-        } else {
-            $this->_redisOptions = [
-                "scheme" => "tcp",
-                "timeout" => $options['redis_timeout'] ?? 5,
-                "host" => $options['redis_host'] ?? 'localhost',
-                "port" => $options['redis_port'] ?? 6379
-            ];
-
-            $this->_redisOptions = array_merge($this->_redisOptions, $options['predis_options'] ?? []);
-        }
+        $this->prefix = $options['prefix'] ?? Integrations\Redis::DEFAULT_PREFIX;
     }
 
     protected function readItemString(string $namespace, string $key): ?string
     {
-        $redis = $this->getConnection();
-        return $redis->hget("$this->_prefix:$namespace", $key);
+        return $this->connection->hget("$this->prefix:$namespace", $key);
     }
 
     protected function readItemStringList(string $namespace): ?array
     {
-        $redis = $this->getConnection();
-        $raw = $redis->hgetall("$this->_prefix:$namespace");
+        $raw = $this->connection->hgetall("$this->prefix:$namespace");
         return $raw ? array_values($raw) : null;
-    }
-
-    protected function getConnection(): ClientInterface
-    {
-        if ($this->_connection == null) {
-            $this->_connection = new Client($this->_redisOptions);
-        }
-
-        return $this->_connection;
     }
 }
