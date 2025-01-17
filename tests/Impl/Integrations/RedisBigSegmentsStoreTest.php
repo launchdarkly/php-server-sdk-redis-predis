@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace LaunchDarkly\Impl\Integrations\Tests\Impl\Integrations;
 
-use Exception;
 use LaunchDarkly\Impl\Integrations\RedisBigSegmentsStore;
 use PHPUnit\Framework;
-use Predis\ClientInterface;
+use Predis\Client;
 use Psr\Log;
 
 class RedisBigSegmentsStoreTest extends Framework\TestCase
@@ -17,31 +16,26 @@ class RedisBigSegmentsStoreTest extends Framework\TestCase
         $now = time();
         $logger = new Log\NullLogger();
 
-        $connection = $this->createMock(ClientInterface::class);
+        $connection = new Client();
+        $connection->flushAll();
         $store = new RedisBigSegmentsStore($connection, $logger, []);
 
-        $connection->expects($this->once())
-            ->method('__call')
-            ->with('get', ['launchdarkly:big_segments_synchronized_on'])
-            ->willReturn("$now");
-
         $metadata = $store->getMetadata();
+        $this->assertNull($metadata->getLastUpToDate());
+        $this->assertTrue($metadata->isStale(10));
 
+        $connection->set('launchdarkly:big_segments_synchronized_on', $now);
+        $metadata = $store->getMetadata();
         $this->assertEquals($now, $metadata->getLastUpToDate());
         $this->assertFalse($metadata->isStale(10));
     }
 
-    public function testGetMetadataWithException(): void
+    public function testGetMetadataWithInvalidConfiguration(): void
     {
         $logger = new Log\NullLogger();
 
-        $connection = $this->createMock(ClientInterface::class);
+        $connection = new Client(['port' => 33_333]);
         $store = new RedisBigSegmentsStore($connection, $logger, []);
-
-        $connection->expects($this->once())
-            ->method('__call')
-            ->with('get', ['launchdarkly:big_segments_synchronized_on'])
-            ->willThrowException(new \Exception('sorry'));
 
         $metadata = $store->getMetadata();
 
@@ -53,24 +47,14 @@ class RedisBigSegmentsStoreTest extends Framework\TestCase
     {
         $logger = new Log\NullLogger();
 
-        $connection = $this->createMock(ClientInterface::class);
+        $connection = new Client();
+        $connection->flushAll();
+        $connection->sAdd('launchdarkly:big_segment_include:ctx', 'key1', 'key2');
+        $connection->sAdd('launchdarkly:big_segment_exclude:ctx', 'key1', 'key3');
+
         $store = new RedisBigSegmentsStore($connection, $logger, []);
 
-        $connection->expects($this->exactly(2))
-            ->method('__call')
-            ->willReturnCallback(function ($method, $args) {
-                if ($method !== 'smembers') {
-                    return;
-                }
-
-                return match ($args[0]) {
-                    'launchdarkly:big_segment_include:ctx' => ['key1', 'key2'],
-                    'launchdarkly:big_segment_exclude:ctx' => ['key1', 'key3'],
-                    default => [],
-                };
-            });
-
-        $membership = $store->getMembership('ctx');
+        $membership = $store->getMembership('ctx') ?? [];
 
         $this->assertCount(3, $membership);
         $this->assertTrue($membership['key1']);
@@ -78,27 +62,27 @@ class RedisBigSegmentsStoreTest extends Framework\TestCase
         $this->assertFalse($membership['key3']);
     }
 
-    public function testCanDetectInclusionWithException(): void
+    public function testCanDetectInclusionWithEmptyData(): void
     {
         $logger = new Log\NullLogger();
 
-        $connection = $this->createMock(ClientInterface::class);
+        $connection = new Client();
+        $connection->flushAll();
+
         $store = new RedisBigSegmentsStore($connection, $logger, []);
 
-        $connection->expects($this->exactly(2))
-            ->method('__call')
-            ->willReturnCallback(function ($method, $args) {
-                if ($method !== 'smembers') {
-                    return;
-                }
+        $membership = $store->getMembership('ctx');
 
-                return match ($args[0]) {
-                    'launchdarkly:big_segment_include:ctx' => ['key1', 'key2'],
-                    'launchdarkly:big_segment_exclude:ctx' => throw new Exception('sorry'),
-                    default => [],
-                };
-            });
+        $this->assertNotNull($membership);
+        $this->assertCount(0, $membership);
+    }
 
+    public function testCanDetectInclusionWithInvalidConfiguration(): void
+    {
+        $logger = new Log\NullLogger();
+
+        $connection = new Client(['port' => 33_333]);
+        $store = new RedisBigSegmentsStore($connection, $logger, []);
         $membership = $store->getMembership('ctx');
 
         $this->assertNull($membership);
