@@ -42,5 +42,4 @@
         "cs-check": "vendor/bin/php-cs-fixer fix --diff --dry-run --verbose --config=.php-cs-fixer.php",
         "cs-fix": "vendor/bin/php-cs-fixer fix --diff --verbose --config=.php-cs-fixer.php"
     }
-
 }
