@@ -2,6 +2,36 @@
 
 All notable changes to the project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.0.0](https://github.com/launchdarkly/php-server-sdk-redis-predis/compare/1.3.0...2.0.0) (2025-01-17)
+
+
+### Features
+
+* Add Big Segment store support ([21c61b8](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/21c61b831f2aaad61fe4f306a1a81eadc6de20f8))
+* Add Big Segment store support ([63c3815](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/63c3815c51309dbe745e4d0771d95cdaf837a50a))
+* Bump LaunchDarkly to 6.4.0+ ([c5c523c](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/c5c523c672230427748cff9d037a6cec09d22b3f))
+* Bump PHP to 8.1+ ([c5c523c](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/c5c523c672230427748cff9d037a6cec09d22b3f))
+* Bump predis to 2.3.0+ ([c5c523c](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/c5c523c672230427748cff9d037a6cec09d22b3f))
+* FeatureRequester requires configured ClientInterface ([4155441](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/41554410e9c63ad0036efb9eaade3bd46c47d467))
+* FeatureRequester requires configured ClientInterface ([fdeae98](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/fdeae986e149e0265a4ea0c71f070c355183474a))
+* FeatureRequester requires configured ClientInterface ([295ac15](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/295ac1507fbe9331e3fec6a0a1192fd15c7eeba9))
+* FeatureRequester requires configured ClientInterface ([ffd1c39](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/ffd1c39e07dc513db62283a63eecdeadf9527b0d))
+* FeatureRequester requires configured ClientInterface ([40e93c6](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/40e93c66b4986c81483f6c93be70a02b03281a4b))
+
+
+### Bug Fixes
+
+* Move DEFAULT_PREFIX const to LaunchDarkly\Integrations ([21c61b8](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/21c61b831f2aaad61fe4f306a1a81eadc6de20f8))
+* Move DEFAULT_PREFIX const to LaunchDarkly\Integrations ([63c3815](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/63c3815c51309dbe745e4d0771d95cdaf837a50a))
+
+
+### Miscellaneous Chores
+
+* Add psalm and cs-checker ([1794878](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/179487803e635618efa9dc2fcf76478336c8089f))
+* Bump PHP versions in GitHub Actions ([3eedaa5](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/3eedaa573eacb4ddda0b50b8c57258d432b2a88f))
+* Run `composer cs-fix` to improve style ([bc91e22](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/bc91e225cb8b4876c1feae9202fb084a80165cdc))
+* Update type hints to quiet psalm ([839833f](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/839833f3772bbb5272d6de58573f79fdb6aa2ec6))
+
 ## [1.3.0] - 2023-10-25
 ### Changed:
 - Expanded SDK version support to v6
@@ -21,4 +51,3 @@ All notable changes to the project will be documented in this file. This project
 
 ## [1.0.0] - 2021-08-06
 Initial release, for use with version 4.x of the LaunchDarkly PHP SDK.
-
