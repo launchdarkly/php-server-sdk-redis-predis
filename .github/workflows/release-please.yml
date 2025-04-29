@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: write # Contents and pull-requests are for release-please to make releases.
       pull-requests: write
+      issues: write
 
     services:
       redis:
