@@ -2,6 +2,13 @@
 
 All notable changes to the project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.0.2](https://github.com/launchdarkly/php-server-sdk-redis-predis/compare/2.0.1...2.0.2) (2025-04-29)
+
+
+### Miscellaneous Chores
+
+* Add new `issues: write` permission ([#35](https://github.com/launchdarkly/php-server-sdk-redis-predis/issues/35)) ([99df3ff](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/99df3ff5c2c6f266d09f6c796caaa0e45f88c8ff))
+
 ## [2.0.1](https://github.com/launchdarkly/php-server-sdk-redis-predis/compare/2.0.0...2.0.1) (2025-01-17)
 
 
