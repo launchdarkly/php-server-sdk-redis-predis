@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="6.12.0@cf420941d061a57050b6c468ef2c778faf40aee2">
+  <file src="src/LaunchDarkly/Impl/Integrations/RedisBigSegmentsStore.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[RedisBigSegmentsStore]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getMembership(string $contextHash): ?array]]></code>
+      <code><![CDATA[public function getMetadata(): Types\BigSegmentsStoreMetadata]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$options]]></code>
+    </PossiblyUnusedProperty>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($prefix)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/LaunchDarkly/Impl/Integrations/RedisFeatureRequester.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[RedisFeatureRequester]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function readItemString(string $namespace, string $key): ?string]]></code>
+      <code><![CDATA[protected function readItemStringList(string $namespace): ?array]]></code>
+    </MissingOverrideAttribute>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($prefix)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/LaunchDarkly/Integrations/Redis.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Redis]]></code>
+    </ClassMustBeFinal>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[bigSegmentsStore]]></code>
+      <code><![CDATA[featureRequester]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+</files>
