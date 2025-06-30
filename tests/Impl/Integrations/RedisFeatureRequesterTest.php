@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace LaunchDarkly\Impl\Integrations\Tests\Impl\Integrations;
 
-use LaunchDarkly\Integrations\Redis;
 use LaunchDarkly\Impl\Model\FeatureFlag;
 use LaunchDarkly\Impl\Model\Segment;
+use LaunchDarkly\Integrations\Redis;
 use LaunchDarkly\Subsystems\FeatureRequester;
 use PHPUnit\Framework\TestCase;
 use Predis\Client;

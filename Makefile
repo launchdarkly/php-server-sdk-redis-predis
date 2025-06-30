@@ -16,4 +16,4 @@ coverage: #! Run unit tests with test coverage
 .PHONY: lint
 lint: #! Run quality control tools (e.g. psalm)
 	./vendor/bin/psalm --no-cache
-	composer cs-check
+	PHP_CS_FIXER_IGNORE_ENV=1 composer cs-check
