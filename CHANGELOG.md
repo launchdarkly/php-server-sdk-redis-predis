@@ -7,7 +7,7 @@ All notable changes to the project will be documented in this file. This project
 
 ### Bug Fixes
 
-* widen psr/log constraint to allow ^1.0 and ^2.0 ([#48](https://github.com/launchdarkly/php-server-sdk-redis-predis/issues/48)) ([af071e3](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/af071e38b85b5dc8de1b2a29d007dfb005ca75db))
+* Widen psr/log constraint to allow ^1.0 and ^2.0 ([#48](https://github.com/launchdarkly/php-server-sdk-redis-predis/issues/48)) ([af071e3](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/af071e38b85b5dc8de1b2a29d007dfb005ca75db))
 
 ## [2.0.3](https://github.com/launchdarkly/php-server-sdk-redis-predis/compare/2.0.2...2.0.3) (2025-06-30)
 
