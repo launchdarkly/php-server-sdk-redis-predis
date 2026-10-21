@@ -2,6 +2,13 @@
 
 All notable changes to the project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org).
 
+## [2.1.0](https://github.com/launchdarkly/php-server-sdk-redis-predis/compare/2.0.4...2.1.0) (2026-10-21)
+
+
+### Features
+
+* Require PHP 8.2 or later ([#50](https://github.com/launchdarkly/php-server-sdk-redis-predis/issues/50)) ([3c2b7d1](https://github.com/launchdarkly/php-server-sdk-redis-predis/commit/3c2b7d17220b931513997db757d16a81a4efa3b3))
+
 ## [2.0.4](https://github.com/launchdarkly/php-server-sdk-redis-predis/compare/2.0.3...2.0.4) (2026-08-12)
 
 
